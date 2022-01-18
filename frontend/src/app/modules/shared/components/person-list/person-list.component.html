@@ -1,0 +1,12 @@
+<table>
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{person.id}}</td>
+      <td>{{person.firstname}}</td>
+      <td>{{person.lastname}}</td>
+      <td>{{person.born.substring(0, 10)}}</td>
+      <td>{{person.tel}}</td>
+      <td>{{person.adress}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<div>
+  <div>
+    Vorname:
+    <input type="text" [(ngModel)]="firstname">
+    <span *ngIf="!firstnameValid">Vorname muss mit Großbuchstaben beginnen u. mindestens 3 Zeichen lang sein</span>
+  </div>
+  <div>
+    Nachname:
+    <input type="text" [(ngModel)]="lastname">
+    <span *ngIf="!lastnameValid">Lehner, DeNiro, DelPonte,...</span>
+  </div>
+  <div>
+    Geburtsdatum:
+    <input type="text" [(ngModel)]="birthday">
+    <span *ngIf="!birthdayValid">Format: 01.02.2015</span>
+  </div>
+  <div>
+    Tel.:
+    <input type="text" [(ngModel)]="tel">
+    <span *ngIf="!telValid">Format: +43 (01) 1234</span>
+  </div>
+  <div>
+    Adress:
+    <input type="text" [(ngModel)]="adress">
+    <span *ngIf="!adressValid">Format: A-4710 Grieskirchen, Schlustrasse 1</span>
+  </div>
+
+  <button (click)="savePerson()">Save</button>
+</div>

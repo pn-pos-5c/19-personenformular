@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+using System.ComponentModel.DataAnnotations;
 
 namespace PersonsDb
 {
@@ -20,6 +18,20 @@ namespace PersonsDb
         public virtual DbSet<City> Cities { get; set; } = null!;
         public virtual DbSet<Person> Persons { get; set; } = null!;
         public virtual DbSet<RegexData> RegexDatas { get; set; } = null!;
+
+        public override int SaveChanges()
+        {
+            var entities = ChangeTracker.Entries()
+                .Where(x => x.State == EntityState.Added || x.State == EntityState.Modified)
+                .Select(x => x.Entity);
+            foreach (var entity in entities)
+            {
+                System.Console.WriteLine($"  SaveChanges: Validating {entity}");
+                var validationContext = new ValidationContext(entity);
+                Validator.ValidateObject(entity, validationContext, true);
+            }
+            return base.SaveChanges();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "281fad5a-e2ea-4c24-a162-cac114e2acf4": {
+      "ProjectGuid": "281fad5a-e2ea-4c24-a162-cac114e2acf4",
+      "DisplayName": "PersonsDb",
+      "ColorIndex": 0
+    },
+    "34b52542-e03f-47dd-a159-d87fefae7497": {
+      "ProjectGuid": "34b52542-e03f-47dd-a159-d87fefae7497",
+      "DisplayName": "Persons",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

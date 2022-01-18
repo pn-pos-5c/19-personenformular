@@ -1,3 +1,4 @@
+using Persons.DTOs;
 using Persons.Services;
 
 namespace Persons.Controllers;
@@ -20,12 +21,21 @@ public class PersonsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetPerson(long id)
+    public IActionResult GetPerson(int id)
     {
         if (id < 0) return BadRequest("Invalid id");
 
         var person = personsService.GetPerson(id);
         if (person == null) return BadRequest("Invalid id");
+
+        return Ok(person);
+    }
+
+    [HttpPost]
+    public IActionResult AddPerson([FromBody] PersonDto personDto)
+    {
+        var person = personsService.AddPerson(personDto);
+        if (person == null) return BadRequest("Invalid person");
 
         return Ok(person);
     }
